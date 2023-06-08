@@ -1,0 +1,63 @@
+﻿<Window x:Class="Morpion.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Morpion"
+        mc:Ignorable="d"
+        Title="Puissance 4" Height="650" Width="750">
+    <Window.Icon>
+        <ImageSource>C:\Users\malum_p0cluj6\Downloads\Puissance 4 based on Morpion\Morpion.ViewModel\coins.ico</ImageSource>
+    </Window.Icon>
+
+    <ItemsControl Margin="2" ItemsSource="{Binding Grille}" Background="#CC1A4EF4">
+
+        <!-- Modèle de panneau affichant les éléments de la liste -->
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <UniformGrid Rows="6" Columns="7" />
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+
+        <!-- Modèle d'affichage de chaque élément de la liste -->
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <Button x:Name="celluleBt" Margin="2" FontWeight="Bold" FontSize="24"
+                        Command="{Binding CocheCommand}">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="Transparent">
+                                <Ellipse Fill="{TemplateBinding Background}" StrokeThickness="4">
+                                    <Ellipse.Style>
+                                        <Style TargetType="Ellipse">
+                                            <Setter Property="Stroke" Value="Transparent" />
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Stroke" Value="DarkBlue" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Ellipse.Style>
+                                </Ellipse>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <!-- Réactions suite à changement d'état -->
+                <DataTemplate.Triggers>
+                    <!-- Lorsque la propriété Etat prend la valeur Rouge ... -->
+                    <DataTrigger Binding="{Binding Etat}" Value="Rouge">
+                        <Setter TargetName="celluleBt" Property="Background" Value="Red" />
+                    </DataTrigger>
+                    <!-- Lorsque la propriété Etat prend la valeur Jaune ... -->
+                    <DataTrigger Binding="{Binding Etat}" Value="Jaune">
+                        <Setter TargetName="celluleBt" Property="Background" Value="Yellow" />
+                    </DataTrigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+
+    </ItemsControl>
+</Window>
