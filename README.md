@@ -14,7 +14,7 @@ Le puissance 4 est une implémentation simple du jeu en C# utilisant le framewor
 ## Pour commencer
 Pour exécuter le projet Morpion en local, suivez ces étapes :
 
-1. Clonez le dépôt : git clone https://github.com/MonaBlanc/Puisssance4.git
+1. Clonez le dépôt : git clone [https://github.com/MonaBlanc/Puisssance4.git](https://github.com/MonaBlanc/Puissance-4.git)
 
 2. Ouvrez le projet dans Visual Studio (ou votre IDE C# préféré).
 
