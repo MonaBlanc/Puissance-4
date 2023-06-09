@@ -25,11 +25,13 @@ Pour exécuter le projet Morpion en local, suivez ces étapes :
 ## Structure du projet
 Le projet Puissance 4 est composé des éléments suivants :
 
-- `MainViewModel` : Cette classe représente le modèle de vue principal du jeu. Elle gère la logique du jeu, les tours des joueurs, la gestion de la grille et la détection des motifs gagnants.
+- `MainViewModel` : Cette classe représente le modèle de vue principal du jeu Puissance 4. Elle gère la logique du jeu, les tours des joueurs, la gestion de la grille et la détection des alignements gagnants.
 
-- `IMainView` : Cette interface définit le contrat pour la vue principale du jeu. Elle inclut une méthode pour gérer la fin d'une partie.
+- `CelluleViewModel` : Cette classe représente le modèle de vue pour une cellule individuelle de la grille. Elle gère l'état de la cellule et sa couleur.
 
-- `CelluleViewModel` : Cette classe représente le modèle de vue pour une cellule individuelle de la grille. Elle gère l'état de la cellule.
+- `RelayCommand` : Cette classe est une implémentation personnalisée de `ICommand` utilisée pour gérer les commandes des boutons de l'interface utilisateur.
+
+- `ViewModelBase` : Cette classe de base implémente INotifyPropertyChanged pour faciliter la mise à jour des propriétés du modèle de vue.
 
 - `MainWindow.xaml` : Ce fichier XAML définit la fenêtre principale du jeu, comprenant la grille du plateau de jeu et les éléments de l'interface utilisateur.
 
